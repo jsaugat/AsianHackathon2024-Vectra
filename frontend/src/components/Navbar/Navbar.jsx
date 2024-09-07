@@ -21,6 +21,10 @@ const routes = [
   {
     title: "Environment",
     href: "/environment"
+  },
+  {
+    title: "Quiz",
+    href: "/quiz"
   }
 ]
 

@@ -12,6 +12,7 @@ import Layout from "./Layout";
 import Login from "./routes/Login";
 import Signup from "./routes/Signup";
 import Environment from "./routes/Environment";
+import Quiz from "./routes/Quiz";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: 'environment',
         element: <Environment />,
+      },
+      {
+        path: 'quiz',
+        element: <Quiz />,
       },
     ],
   },
