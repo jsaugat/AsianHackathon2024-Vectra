@@ -7,17 +7,25 @@ const Quiz = () => {
   const questionsByTopic = {
     Cube: [
       { question: 'Does a cube have six faces?', answer: 'yes' },
-      { question: 'Can a cube roll like a ball?', answer: 'no' }
+      { question: 'Can a cube roll like a ball?', answer: 'no' },
+      { question: 'Does a cylinder have two circular faces?', answer: 'yes' },
+      { question: 'Is a cylinder a 3D shape?', answer: 'yes' }
     ],
     Square: [
       { question: 'Is a square a 2D shape?', answer: 'yes' },
-      { question: 'Does a square have four equal sides?', answer: 'yes' }
+      { question: 'Does a square have four equal sides?', answer: 'yes' },
+      { question: 'Does a cylinder have two circular faces?', answer: 'yes' },
+      { question: 'Is a cylinder a 3D shape?', answer: 'yes' }
     ],
     Cylinder: [
+      { question: 'Does a cylinder have two circular faces?', answer: 'yes' },
+      { question: 'Is a cylinder a 3D shape?', answer: 'yes' },
       { question: 'Does a cylinder have two circular faces?', answer: 'yes' },
       { question: 'Is a cylinder a 3D shape?', answer: 'yes' }
     ],
     Torus: [
+      { question: 'Is a torus shaped like a doughnut?', answer: 'yes' },
+      { question: 'Does a torus have flat sides?', answer: 'no' },
       { question: 'Is a torus shaped like a doughnut?', answer: 'yes' },
       { question: 'Does a torus have flat sides?', answer: 'no' }
     ]
@@ -91,7 +99,6 @@ const Quiz = () => {
               <Text
                 value={topic}
                 position={`${-1.5 + index * 1.5} 3.5 -3`}
-                // position="0.3 4 -4"
                 align="center"
                 color="#ffffff"
               />
