@@ -1,7 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose';
 import cors from 'cors';
-
+import authRouter from './routers/auth.router.js';
 import cookieParser from 'cookie-parser';
 
 mongoose.connect('mongodb+srv://test:test@cluster0.p6muf.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -19,6 +19,7 @@ app.use(cookieParser());
 app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`);
 })
+app.use('/api/auth',authRouter)
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
