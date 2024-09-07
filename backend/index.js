@@ -3,9 +3,9 @@ import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import cors from 'cors'; // Import cors
 import dotenv from 'dotenv';
-import authRoute from './routes/auth.route.js';
-import userRoute from './routes/user.route.js';
-import postRoute from './routes/post.route.js';
+import authRoute from './routers/auth.router.js';
+import userRoute from './routers/user.router.js';
+import postRoute from './routers/post.route.js';
 import multer from 'multer';
 import { GridFSBucket } from 'mongodb';
 import { Readable } from 'stream';
@@ -26,13 +26,12 @@ app.use(
   })
 );
 
-mongoose.connect(process.env.MONGO)
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((err) => {
-    console.error('Error connecting to MongoDB:', err);
-  });
+mongoose.connect('mongodb+srv://test:test@cluster0.p6muf.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => {
+  console.log('Connected to MongoDB');
+}).catch((err)=>{
+    console.log(err);
+});
 
 const conn = mongoose.connection;
 let bucket;
