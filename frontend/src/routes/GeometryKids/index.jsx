@@ -112,8 +112,8 @@ export default function Environment() {
         <Plane
           position="0 0 -4"
           rotation="-90 0 0"
-          width="100"
-          height="100"
+          width="1000"
+          height="1000"
           color="#70b3b3"
           shadow
         />
@@ -162,12 +162,77 @@ export default function Environment() {
         )}
 
         {/* Camera and Cursor */}
-        <Entity camera look-controls position="0 1.6 0">
+        {/* <Entity camera look-controls position="0 1.6 0">
           <Entity cursor="fuse: true; fuseTimeout: 500"
             position="0 0 -1"
             geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
             material="color: black; shader: flat">
           </Entity>
+        </Entity> */}
+
+        {/* Images */}
+        <Entity
+          primitive="a-image"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK28E8Z4mWXqNCNBZQd-IJ4XSL0d_KM3sZyg&s"
+          position="0 4 -25"
+          width="9"
+          height="6"
+        />
+        <Text
+          value="EXAMPLES"
+          align="center"
+          position="1 2.5 -9"
+          color="black"
+          style={{ fontWeight: "800", fontSize: "50px" }}
+        />
+        <Entity
+          primitive="a-image"
+          src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg"
+          position="0 4 -40"
+          width="9"
+          height="6"
+        />
+        <Entity
+          primitive="a-image"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ181Cpf27tDg_vD68fdAS1p6sbAinZcILl2w&s"
+          position="0 4 -70"
+          width="9"
+          height="6"
+        />
+        <Entity
+          primitive="a-image"
+          src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg"
+          position="0 4 -90"
+          width="9"
+          height="6"
+        />
+        <Entity
+          primitive="a-image"
+          src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg"
+          position="0 4 -110"
+          width="9"
+          height="6"
+        />
+        <Entity
+          primitive="a-image"
+          src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg"
+          position="0 4 -130"
+          width="9"
+          height="6"
+        />
+        <Entity
+          primitive="a-camera"
+          position="0 1.6 0"
+          wasd-controls="enabled: true; acceleration: 100"
+          look-controls
+        >
+          <Entity
+            primitive="a-cursor"
+            cursor="fuse: true; fuseTimeout: 500"
+            position="0 0 -1"
+            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+            material="color: black; shader: flat"
+          />
         </Entity>
       </Scene>
     </div>

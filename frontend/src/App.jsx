@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Spline from '@splinetool/react-spline';
 import { Button } from '@/components/ui/button';
 
 export default function Home() {
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   // Check if the user exists in localStorage
-  //   const user = localStorage.getItem('user');
+  useEffect(() => {
+    // Check if the user exists in localStorage
+    const user = localStorage.getItem('user');
 
-  //   // If no user is found, navigate to the /login page
-  //   if (!user) {
-  //     navigate('/login');
-  //   }
-  // }, [navigate]); // The effect depends on navigate
+    // If no user is found, navigate to the /login page
+    if (!user) {
+      navigate('/login');
+    }
+  }, [navigate]); // The effect depends on navigate
 
   return (
     <main className='h-screen flex items-center bg-[#ffb3c3]'>
@@ -27,7 +27,9 @@ export default function Home() {
           <p className='text-5xl text-black'>
             3D Adventures for Curious Minds
           </p>
-          <Button className="block">Get Started</Button>
+          <Link to="/ar">
+            <Button className="block">Get Started</Button>
+          </Link>
         </div>
       </div>
     </main>

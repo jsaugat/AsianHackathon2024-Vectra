@@ -65,7 +65,7 @@ export default function Navbar() {
   };
 
   return (
-    <main className="flex justify-between md:p-2 fixed z-[200] w-full bg-transparent backdrop-blur-md">
+    <main className="flex justify-between md:p-2 fixed z-[200] w-full bg-white/20 backdrop-blur-md">
       <section className="flex justify-center items-center gap-10">
         <Logo />
         <NavigationMenu>

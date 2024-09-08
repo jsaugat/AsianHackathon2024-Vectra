@@ -232,7 +232,7 @@ const Quiz = () => {
             value={`Quiz Finished! Your Score: ${score} / ${questions.length}`}
             position="0 2 -3"
             align="center"
-            color="#4CC3D9"
+            color="#000000"
           />
 
           {/* Restart Button */}
@@ -265,6 +265,15 @@ const Quiz = () => {
         color="#00bbe0"
       />
       <Plane position="0 0 -4" rotation="-90 0 0" width="10" height="200" color="#404040" shadow />
+
+
+      {/* <a-image
+        // src="https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/ColinStapczynski/phpIiYR5R.png"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK28E8Z4mWXqNCNBZQd-IJ4XSL0d_KM3sZyg&s"
+        position="0 3 -5"
+        width="1.5"
+        height="1"
+      /> */}
     </Scene>
   );
 };

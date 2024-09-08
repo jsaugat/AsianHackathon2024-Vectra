@@ -22,7 +22,7 @@ export default function AR() {
           <h1 className="text-xl font-semibold mt-3">Spaceship</h1>
           <p className="text-gray-600">Explore the galaxy with this futuristic spaceship model.</p>
         </div>
-        
+
         <div className="border rounded-lg shadow-lg p-5">
           <model-viewer
             src="/file/Eye.glb"
@@ -36,7 +36,7 @@ export default function AR() {
           <h1 className="text-xl font-semibold mt-3">Human Eye</h1>
           <p className="text-gray-600">A detailed model of the human eye, perfect for anatomy lessons.</p>
         </div>
-        
+
         <div className="border rounded-lg shadow-lg p-5">
           <model-viewer
             src="/file/skull.glb"
