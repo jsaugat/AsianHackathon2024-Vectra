@@ -25,13 +25,11 @@ export const signup = async (req, res) => {
             email,
             username,
             name,
-            level,
             password: hashedPassword,
-            rollno,
         });
 
         // Generate token for the newly created user
-        const token = jwt.sign({ id: newUser._id, role: newUser.role }, process.env.JWT_SECRET);
+        const token = jwt.sign({ id: newUser._id, role: newUser.role }, "dfdfkjdfkdjkfj");
 
         // Respond with user data and token
         return res.status(201).json({
@@ -60,7 +58,7 @@ export const signin = async (req, res) => {
             return res.status(401).json({ success: false, message: 'Wrong credentials' });
         }
 
-        const token = jwt.sign({ id: validUser._id, role: validUser.role }, process.env.JWT_SECRET);
+        const token = jwt.sign({ id: validUser._id, role: validUser.role }, "dfdfkjdfkdjkfj");
         const { password: hashedPassword, ...rest } = validUser._doc;
         const expiryDate = new Date(Date.now() + 3600000); // 1 hour expiration
 

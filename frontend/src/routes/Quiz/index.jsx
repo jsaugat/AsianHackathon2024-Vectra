@@ -3,23 +3,35 @@ import React, { useState } from 'react';
 import { Box, Text, Scene, Sky, Camera, Cursor, Plane } from 'react-aframe-ar';
 
 const Quiz = () => {
-  const topics = ['Cube', 'Square', 'Cylinder', 'Torus'];
+  const topics = ['Cube', 'Sphere', 'Cylinder', 'Torus'];
   const questionsByTopic = {
     Cube: [
       { question: 'Does a cube have six faces?', answer: 'yes' },
-      { question: 'Can a cube roll like a ball?', answer: 'no' }
+      { question: 'Can a cube roll like a ball?', answer: 'no' },
+      { question: 'Are all the faces of a cube square?', answer: 'yes' },
+      { question: 'Does a cube have edges of equal length?', answer: 'yes' },
+      { question: 'Is a cube a type of prism?', answer: 'yes' }
     ],
-    Square: [
-      { question: 'Is a square a 2D shape?', answer: 'yes' },
-      { question: 'Does a square have four equal sides?', answer: 'yes' }
+    Sphere: [
+      { question: 'Is a sphere a 3D shape?', answer: 'yes' },
+      { question: 'Does a sphere have flat surfaces?', answer: 'no' },
+      { question: 'Can a sphere roll in any direction?', answer: 'yes' },
+      { question: 'Does a sphere have edges?', answer: 'no' },
+      { question: 'Is the Earth shaped like a sphere?', answer: 'yes' }
     ],
     Cylinder: [
       { question: 'Does a cylinder have two circular faces?', answer: 'yes' },
-      { question: 'Is a cylinder a 3D shape?', answer: 'yes' }
+      { question: 'Is a cylinder a 3D shape?', answer: 'yes' },
+      { question: 'Does a cylinder have any flat surfaces?', answer: 'no' },
+      { question: 'Can a cylinder roll?', answer: 'yes' },
+      { question: 'Is a cylinder shaped like a can?', answer: 'yes' }
     ],
     Torus: [
       { question: 'Is a torus shaped like a doughnut?', answer: 'yes' },
-      { question: 'Does a torus have flat sides?', answer: 'no' }
+      { question: 'Does a torus have flat sides?', answer: 'no' },
+      { question: 'Can a torus be created by rotating a circle around an axis?', answer: 'yes' },
+      { question: 'Does a torus have a hole in the middle?', answer: 'yes' },
+      { question: 'Is a torus a type of surface of revolution?', answer: 'yes' }
     ]
   };
 
@@ -30,6 +42,7 @@ const Quiz = () => {
   const [isQuizStarted, setIsQuizStarted] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState('');
   const [questions, setQuestions] = useState([]);
+  const [showTopicSelection, setShowTopicSelection] = useState(false);
 
   const handleClick = (type) => {
     const isCorrect = type === questions[currentQuestion].answer;
@@ -63,9 +76,44 @@ const Quiz = () => {
     setIsQuizFinished(false);
   };
 
+  const showTopics = () => {
+    setShowTopicSelection(true);
+  };
+
+  const restartQuiz = () => {
+    setIsQuizStarted(false);
+    setShowTopicSelection(true);
+    setSelectedTopic('');
+    setQuestions([]);
+    setCurrentQuestion(0);
+    setScore(0);
+    setIsQuizFinished(false);
+  };
+
   return (
     <Scene>
-      {!isQuizStarted ? (
+      {!showTopicSelection ? (
+        <>
+          {/* Start a Quiz Button */}
+          <Box
+            position="0 1.5 -3"
+            color="#4CC3D9"
+            scale="1.2 0.6 0.1"
+            events={{
+              click: showTopics,
+              mouseenter: (e) => (e.target.setAttribute('scale', '1.3 0.7 0.2')),
+              mouseleave: (e) => (e.target.setAttribute('scale', '1.2 0.6 0.1'))
+            }}
+            class="clickable"
+          />
+          <Text
+            value="Start a Quiz"
+            position="0 1.6 -2.6"
+            align="center"
+            color="#ffffff"
+          />
+        </>
+      ) : !isQuizStarted ? (
         <>
           {/* Topic Selection */}
           <Text
@@ -75,9 +123,8 @@ const Quiz = () => {
             color="#ffffff"
           />
           {topics.map((topic, index) => (
-            <>
+            <React.Fragment key={index}>
               <Box
-                key={index}
                 position={`${-1.5 + index * 1.5} 3 -3`}
                 color={selectedTopic === topic ? '#00FF00' : '#008c00'}
                 scale="0.8 0.6 0.1"
@@ -91,11 +138,10 @@ const Quiz = () => {
               <Text
                 value={topic}
                 position={`${-1.5 + index * 1.5} 3.5 -3`}
-                // position="0.3 4 -4"
                 align="center"
                 color="#ffffff"
               />
-            </>
+            </React.Fragment>
           ))}
 
           {/* Start Button */}
@@ -165,7 +211,7 @@ const Quiz = () => {
 
           {/* Question Text */}
           <Text
-            value={questions[currentQuestion].question}
+            value={questions[currentQuestion]?.question || ''}
             position="0 2 -3"
             align="center"
           />
@@ -181,12 +227,33 @@ const Quiz = () => {
           )}
         </>
       ) : (
-        <Text
-          value={`Quiz Finished! Your Score: ${score} / ${questions.length}`}
-          position="0 2 -3"
-          align="center"
-          color="#4CC3D9"
-        />
+        <>
+          <Text
+            value={`Quiz Finished! Your Score: ${score} / ${questions.length}`}
+            position="0 2 -3"
+            align="center"
+            color="#4CC3D9"
+          />
+
+          {/* Restart Button */}
+          <Box
+            position="0 0.5 -3"
+            color="#FFCC00"
+            scale="1 0.6 0.1"
+            events={{
+              click: restartQuiz,
+              mouseenter: (e) => (e.target.setAttribute('scale', '1.1 0.7 0.2')),
+              mouseleave: (e) => (e.target.setAttribute('scale', '1 0.6 0.1'))
+            }}
+            class="clickable"
+          />
+          <Text
+            value="Restart"
+            position="0 0.6 -2.6"
+            align="center"
+            color="#ffffff"
+          />
+        </>
       )}
 
       {/* Camera */}
@@ -195,9 +262,10 @@ const Quiz = () => {
       </Camera>
 
       <Sky color="#242424" />
-      <Plane position="0 0 -4" rotation="-90 0 0" width="100" height="100" color="#404040" shadow />
+      <Plane position="0 0 -4" rotation="-90 0 0" width="10" height="200" color="#404040" shadow />
     </Scene>
   );
 };
 
 export default Quiz;
+3

@@ -11,7 +11,8 @@ import ErrorPage from "./error.page.jsx";
 import Layout from "./Layout";
 import Login from "./routes/Login";
 import Signup from "./routes/Signup";
-import Environment from "./routes/Environment";
+import GeometryKids from "./routes/GeometryKids/index.jsx";
+import SolarSystem from "./splines/SolarSystem";
 import Quiz from "./routes/Quiz";
 
 const router = createBrowserRouter([
@@ -33,8 +34,18 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: 'environment',
-        element: <Environment />,
+        path: 'topics', // Main "topics" route
+        // element: <Topics />, // Topics component as the parent
+        children: [
+          {
+            path: 'geometry-kids', // Nested route for topic1
+            element: <GeometryKids />,
+          },
+          {
+            path: 'solar-system', // Nested route for topic2
+            element: <SolarSystem />,
+          },
+        ],
       },
       {
         path: 'quiz',

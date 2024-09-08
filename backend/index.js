@@ -21,8 +21,8 @@ app.use(cookieParser());
 // Enable CORS for all origins
 app.use(
   cors({
-    // origin: "*",
-    // credentials: true,
+    origin: "*",
+    credentials: true,
   })
 );
 
