@@ -14,6 +14,7 @@ import Signup from "./routes/Signup";
 import GeometryKids from "./routes/GeometryKids/index.jsx";
 import SolarSystem from "./splines/SolarSystem";
 import Quiz from "./routes/Quiz";
+import AR from "./routes/AR";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: 'signup',
         element: <Signup />,
+      },
+      {
+        path: 'ar',
+        element: <AR />,
       },
       {
         path: 'topics', // Main "topics" route

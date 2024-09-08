@@ -24,6 +24,10 @@ const routes = [
     title: "Quiz",
     href: "/quiz",
   },
+  {
+    title: "AR",
+    href: "/ar",
+  },
 ];
 
 // Chapters dropdown content
@@ -120,6 +124,6 @@ export default function Navbar() {
 
 function Logo() {
   return (
-    <div className="text-3xl font-semibold">EDU-AR</div>
+    <div className="text-4xl font-semibold">EDU-AR</div>
   );
 }

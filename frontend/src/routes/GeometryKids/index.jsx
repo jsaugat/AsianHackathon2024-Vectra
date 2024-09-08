@@ -9,7 +9,7 @@ export default function Environment() {
 
   const fetchInfo = async (shape) => {
     try {
-      const command = `A brief, interesting description of a ${ shape } for a class 1 student kid: `
+      const command = `A brief, interesting description of a ${shape} for a class 1 student kid: `
       const response = await axios.post(
         'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1',
         {

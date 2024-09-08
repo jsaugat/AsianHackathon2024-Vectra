@@ -261,7 +261,9 @@ const Quiz = () => {
         <Cursor raycaster="objects: .clickable" />
       </Camera>
 
-      <Sky color="#242424" />
+      <Sky
+        color="#00bbe0"
+      />
       <Plane position="0 0 -4" rotation="-90 0 0" width="10" height="200" color="#404040" shadow />
     </Scene>
   );
