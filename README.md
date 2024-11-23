@@ -11,6 +11,3 @@
 - **Frontend:** [React]  
 - **AR Frameworks:** [A-Frame, AR.js]  
 - **3D Modeling:** [Spline]
-
-## License  
-[MIT License](LICENSE)
