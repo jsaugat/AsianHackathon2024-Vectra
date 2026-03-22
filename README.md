@@ -2,7 +2,7 @@
 
 ## About  
 **Edu-AR** is a hackathon prototype aimed at revolutionizing education by gamifying and visualizing learning for young students. The platform leverages augmented reality to turn educational content into interactive 3D models and activities, creating an engaging and immersive learning experience.
-[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtu.be/6ksj89KqM5s)
+[![Watch the video](https://img.youtube.com/)](https://youtu.be/6ksj89KqM5s)
 
 ## Key Features  
 - **Augmented Reality:** Transform educational content into interactive 3D models using AR.  
